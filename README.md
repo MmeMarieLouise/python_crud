@@ -6,7 +6,7 @@ A rest webservice in Python that can operate over text files as resources.
 
 **Minimum requirements**:
 
-  - [ ] Create a text file with some contents stored in a given path.
+  - [x] Create a text file with some contents stored in a given path.
   - [ ] Read the contents of a text file under the given path.
   - [ ] Update the contents of a text file.
   - [ ] Delete the file that is stored under a given path.
