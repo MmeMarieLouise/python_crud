@@ -7,13 +7,14 @@ A rest webservice in Python that can operate over text files as resources.
 **Minimum requirements**:
 
   - [x] Create a text file with some contents stored in a given path.
-  - [ ] Read the contents of a text file under the given path.
+  - [x] Read the contents of a text file under the given path.
   - [ ] Update the contents of a text file.
   - [ ] Delete the file that is stored under a given path.
  
  
 **Further capabilities**:
 
+  - [ ] A get request to `/` returns info on how to use the api.
   - [ ] If no path is given, a default path under system temp will be used.
   - [ ] Retrieve the total number of files in the given path.
   - [ ] Retrieve the average characters per file.
@@ -70,4 +71,4 @@ $ ls $HOME/crud-files/
   - To enter dev environment: `pipenv shell`
   - To install new project dependency: `pipenv install <dep>` (`--dev` for eg test package)
 
-- To run tests (in the `pipenv shell`): `pytest`
+- To run tests (in the `pipenv shell`): `./bin/test`

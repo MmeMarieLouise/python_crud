@@ -17,4 +17,15 @@ def create():
     myFile.close()
     return 'file created'
 
+
+@app.route('/read', methods=['GET'])
+def read():
+    received_data = request.get_json()
+    path_key = received_data['path']
+    name_key = received_data['name']
+    file_object = open(path_key +"/"+ name_key, "r")
+    read_content = file_object.read()
+    file_object.close()
+    return read_content
+
 app.run(debug=True)
