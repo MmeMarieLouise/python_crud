@@ -1,0 +1,7 @@
+#!/bin/bash
+
+python api.py &>/dev/null &
+
+pytest
+
+ps aux | awk '/\/api.py/ {print $2}' | xargs kill -9 &>/dev/null

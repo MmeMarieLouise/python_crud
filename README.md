@@ -28,7 +28,7 @@ A rest webservice in Python that can operate over text files as resources.
 
 ### Interacting with the webservice
 
-Using `[curl](https://www.lifewire.com/example-uses-of-the-linux-curl-command-4084144)`:
+Using [`curl`](https://www.lifewire.com/example-uses-of-the-linux-curl-command-4084144):
 
 ```sh
 # in one terminal window
