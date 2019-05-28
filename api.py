@@ -22,7 +22,6 @@ def index():
 def create():
     # name response object 'received_data', store JSON within it
     received_data = request.get_json()
-    #
     path_key = received_data['path']
     name_key = received_data['name']
     # file method 'open()'
