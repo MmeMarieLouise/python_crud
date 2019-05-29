@@ -24,13 +24,9 @@ def create():
     received_data = request.get_json()
     path_key = received_data['path']
     name_key = received_data['name']
-    # file method 'open()'
-    myFile = open( path_key + "/" + name_key, "w+")
-    # file method 'write()'
-    myFile.write(received_data['contents'])
-    # file method 'close()'
-    myFile.close()
-    return 'file created'
+    contents = received_data['contents']
+    write_file(path_key, name_key,contents)
+    return 'File created'
 
 # make a request using HTTP 'GET' method to read file at specified path
 @app.route('/read', methods=['GET'])
@@ -42,6 +38,22 @@ def read():
     read_content = file_object.read()
     file_object.close()
     return read_content
+
+# create update request
+@app.route('/update', methods=['POST'])
+def update():
+    received_data = request.get_json()
+    name_key = received_data['name']
+    path_key = received_data['path']
+    contents = received_data['contents']
+    # todo: only update file if it exists
+    write_file(path_key, name_key,contents)
+    return 'File updated'
+
+def write_file(path, name, contents):
+    myFile = open( path + "/" + name, "w+")
+    myFile.write(contents)
+    myFile.close()
 
 # run the app
 # debug = true , so that Flask will auto re-start anytime changes are made
