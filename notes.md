@@ -31,3 +31,30 @@
 - run `brew link python3` again. Result `Linking /usr/local/Cellar/python/3.7.3... 1 symlinks created`
 
 - run `pipenv shell`
+
+##### hidden branches 😩 
+
+ - run, `git branch -a`
+ 
+ #### test
+ 
+ each one is isolated, so basically nothing is created and carried over to the next test.
+ 
+ the number in the tests
+ 
+ - must define the route
+ - must delete the file
+ - must return user feedback
+ - must get json data to get name etc
+ - find out how to delete py files
+ - must read the test and check every other tests and requests etc.
+ 
+ 
+ # must remember!
+ 
+ the api never makes requests, only handles it!!
+ 
+ in this app the tests act as the user and therefore try out each end point 
+ 
+ must import os module, use this to delete
+ 

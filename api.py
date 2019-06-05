@@ -2,6 +2,7 @@
 from flask import Flask
 # import request - global object
 from flask import request
+import os
 
 # create the class instance , app / instantiate the class
 # pass in 'dunder' (double underscore) name, this is the namespace variable
@@ -54,6 +55,15 @@ def write_file(path, name, contents):
     myFile = open( path + "/" + name, "w+")
     myFile.write(contents)
     myFile.close()
+
+# delete file
+@app.route('/delete', methods=['POST'])
+def delete_file():
+   received_data = request.get_json()
+   name_key = received_data['name']
+   path_key = received_data['path']
+   os.remove( path_key + "/" + name_key )
+   return 'File deleted'
 
 # run the app
 # debug = true , so that Flask will auto re-start anytime changes are made

@@ -2,6 +2,7 @@ import unittest
 import requests
 import tempfile
 import shutil
+import os
 
 class ApiTest(unittest.TestCase):
 
@@ -39,6 +40,7 @@ class ApiTest(unittest.TestCase):
         r = requests.post("http://127.0.0.1:5000/create", json=data, headers=header)
         code = r.status_code
         text = r.text
+        # verification stage
         self.assertEqual(code, 200)
         self.assertEqual(text, "File created")
         read_content = self.read_test_file()
@@ -46,6 +48,7 @@ class ApiTest(unittest.TestCase):
 
     # test that api has a read ('/read') endpoint
     def test_get_read(self):
+    # setting up the file and creating it
         self.create_test_file()
         data = {'path': self.tmpDir, 'name': 'test-file'}
         header = {'Content-Type': 'application/json'}
@@ -69,6 +72,26 @@ class ApiTest(unittest.TestCase):
         self.assertEqual(text, "File updated")
         read_content = self.read_test_file()
         self.assertEqual(read_content, "goodbye")
+
+    # test that api has a delete (/delete) endpoint
+    def test_post_delete(self):
+        # create a file
+        self.create_test_file()
+        # prep our data
+        data = {'path': self.tmpDir, 'name': 'test-file'}
+        # prep our headers
+        header = {'Content-Type': 'application/json'}
+        # send the delete post
+        r = requests.post("http://127.0.0.1:5000/delete", json=data, headers=header)
+        # check for 200 code
+        code = r.status_code
+        self.assertEqual(code, 200)
+        text = r.text
+        # check for "File deleted" text
+        self.assertEqual(text, "File deleted")
+        # check that file does not exist
+        exists = os.path.isfile(self.tmpDir + '/test-file')
+        self.assertFalse(exists)
 
 if __name__ == '__main__':
     unittest.main()
