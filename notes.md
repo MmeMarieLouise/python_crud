@@ -18,3 +18,16 @@
 `p` - paste
 
 `dd` - delete current line
+
+
+##### dev env errors
+
+- xcode needs to be updated
+
+- python installed but not linked, run `brew link python3`
+- Error `Error: Permission denied @ dir_s_mkdir - /usr/local/Frameworks`
+- check permissions, run  `ls -lh /usr/local`
+- change permissions, run `sudo mkdir /usr/local/Frameworks` then `sudo chown $(whoami):admin /usr/local/Frameworks`
+- run `brew link python3` again. Result `Linking /usr/local/Cellar/python/3.7.3... 1 symlinks created`
+
+- run `pipenv shell`
