@@ -55,6 +55,11 @@ def write_file(path, name, contents):
     myFile.write(contents)
     myFile.close()
 
+# delete file
+#@app.route('/delete', methods=['POST'])
+#def delete_file():
+   #return ''
+
 # run the app
 # debug = true , so that Flask will auto re-start anytime changes are made
 app.run(debug=True)
