@@ -31,6 +31,7 @@
 - run `brew link python3` again. Result `Linking /usr/local/Cellar/python/3.7.3... 1 symlinks created`
 
 - run `pipenv shell`
+ 
 
 ##### hidden branches 😩 
 
@@ -50,11 +51,13 @@
  - must read the test and check every other tests and requests etc.
  
  
- # must remember!
+ #### api essentials
  
- the api never makes requests, only handles it!!
+ - The API itself never _makes_ requests, only _handles_ it.
  
- in this app the tests act as the user and therefore try out each end point 
+ - In this app the _requests_ are made _within the tests_, therefore they act as the user and interact with each end point.
  
- must import os module, use this to delete
+
+ # git tricks 
  
+use `cherry-pick` to merge (pull commits across) using sha
