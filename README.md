@@ -9,7 +9,7 @@ A rest webservice in Python that can operate over text files as resources.
   - [x] Create a text file with some contents stored in a given path.
   - [x] Read the contents of a text file under the given path.
   - [x] Update the contents of a text file.
-  - [ ] Delete the file that is stored under a given path.
+  - [x] Delete the file that is stored under a given path.
  
  
 **Further capabilities**:
