@@ -93,7 +93,7 @@ by doing `ps aux | awk '/Chrome/'` (use a different keyword if Chrome is not you
 
 After filtering for our server, we can then print out certain columns of the `ps aux` output. If you are on a small screen you may not be able to see them, but
 there are columns! They are numbered as `$` variables. We want the PID (process ID) for our server, which I happen to know is in column 2: `awk '/\/api.py/ {print $2}'`.
-You can play with your Chrome filter to see this: `ps aux | awk '/Chrome/ {print $4}'`. If you have more than one tab open you will probably have a lot of PIDs. You can
+You can play with your Chrome filter to see this: `ps aux | awk '/Chrome/ {print $2}'`. If you have more than one tab open you will probably have a lot of PIDs. You can
 change the `$` variable number from 2 to something else to focus on different columns.
 
 Then we send the PID we got from `awk` through another pipe `|` to a thing called `xargs`. `xargs` basically says "I will take the output from the command on the left
