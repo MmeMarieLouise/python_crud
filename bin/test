@@ -1,7 +1,20 @@
 #!/bin/bash
-# starting the server -
-python api.py &>/dev/null &
 
+# take first argument from command line, save to variable
+DEBUG_MODE=$1
+
+if [ -z "$DEBUG_MODE" ]; then
+  # if in debug mode, start the server, redirect all output
+  # away from terminal, and run in background
+  python api.py &>/dev/null &
+else
+  # else, start the server and run in background
+  python api.py &
+fi
+
+# run the tests
 pytest
 
+# search for the server process, kill it, redirect all output
+# away from terminal
 ps aux | awk '/\/api.py/ {print $2}' | xargs kill -9 &>/dev/null

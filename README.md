@@ -72,3 +72,4 @@ $ ls $HOME/crud-files/
   - To install new project dependency: `pipenv install <dep>` (`--dev` for eg test package)
 
 - To run tests (in the `pipenv shell`): `./bin/test`
+- To run tests (in the `pipenv shell`) with verbose output aka 'DEBUG_MODE': `./bin/test -d`
